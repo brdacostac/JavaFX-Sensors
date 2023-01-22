@@ -78,6 +78,7 @@ public class FXMLWindow extends BorderPane{
         captorTreeView.getSelectionModel().selectedItemProperty().addListener((observable,oldValue,newValue) -> {
             if(oldValue !=null ){
                 name.textProperty().unbindBidirectional(oldValue.getValue().nameProperty());
+
             }
             if(newValue!=null){
                 name.textProperty().bindBidirectional(newValue.getValue().nameProperty());

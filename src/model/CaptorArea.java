@@ -1,7 +1,5 @@
 package model;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.TreeItem;
 import java.io.FileNotFoundException;
@@ -33,7 +31,7 @@ public class CaptorArea extends Captor{
         }
     }
 
-    public void avarageTemperatureChildren() throws Exception {
+    public void avarageTemperatureChildren() throws Exception {  // J'ai pas reussi à afficher la moyenne des capteurs dans la vue
         List<Captor> children = this.getChildren();
         double total=children.size();
         double temperatureMoyenne=0;

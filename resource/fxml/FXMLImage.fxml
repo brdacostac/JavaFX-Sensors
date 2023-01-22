@@ -13,7 +13,7 @@
 
     <HBox>
         <ImageView fx:id="imageTemp" fitHeight="350.0" fitWidth="500.0" preserveRatio="true" BorderPane.alignment="CENTER" />
-        <Label text="temperature" fx:id="captorTemperature"/>
+        <Label text="temperature" fx:id="captorTemperature" />
     </HBox>
 
 </AnchorPane>
