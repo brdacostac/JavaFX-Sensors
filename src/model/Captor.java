@@ -10,27 +10,31 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class Captor {
+public abstract class Captor extends Observable {
 
     private UUID id;
     private SimpleStringProperty name;
 
-    private SimpleDoubleProperty temperature;
+    private double temperature;
 
-    private Comportement comportement;
 
-    public Captor(SimpleStringProperty name) {
+
+    protected Comportement comportement;
+
+    public Captor(SimpleStringProperty name, Comportement comportement) {
         this.name=name;
-        temperature=new SimpleDoubleProperty(0);
+        this.comportement=comportement;
+        try {
+            this.genererTemperature();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void setComportement(Comportement comportement) {
 
-        this.comportement = comportement;
-    }
-
-    public double genererTemperature() throws FileNotFoundException {
-        return this.comportement.genererTemperature();
+    public void genererTemperature() throws FileNotFoundException {
+        temperature = this.comportement.genererTemperature();
+        notifyObservers();
     }
 
     public abstract void addChild(Captor captor, double poids) throws Exception;
@@ -39,12 +43,10 @@ public abstract class Captor {
 
     public abstract TreeItem<Captor> accept(TreeItemVisitor visitor);
 
+
+
     @Override
     public String toString() {
-        return name.get();
-    }
-
-    public String getName() {
         return name.get();
     }
 
@@ -52,13 +54,7 @@ public abstract class Captor {
         return name;
     }
 
-    public DoubleProperty temperatureProperty() {
+    public double getTemperature() {
         return temperature;
     }
-
-    public void setName(String name) {
-        this.name.set(name);
-    }
-
-
 }

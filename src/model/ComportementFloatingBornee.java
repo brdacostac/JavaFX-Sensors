@@ -1,4 +1,6 @@
 package model;
+import javafx.beans.property.SimpleDoubleProperty;
+
 import java.util.Random;
 
 public class ComportementFloatingBornee implements Comportement {

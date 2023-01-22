@@ -1,5 +1,7 @@
 package model;
 
+import javafx.beans.property.SimpleDoubleProperty;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

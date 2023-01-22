@@ -19,7 +19,8 @@
             <Button fx:id="addCaptorButton" text="Add Captor" onAction="#addCaptor"/>
         </VBox>
         <TextField fx:id="name"/>
-        <Label fx:id="temperature" text="Temperature"/>
+        <Label fx:id="id"/>
+        <Button text="Image Temperature" onAction="#windowImage"/>
     </HBox>
 
 

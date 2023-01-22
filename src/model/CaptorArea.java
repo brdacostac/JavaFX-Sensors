@@ -1,9 +1,10 @@
 package model;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.control.TreeItem;
-
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +14,8 @@ public class CaptorArea extends Captor{
 
     private Map<Captor, Double> captors = new HashMap<>();
 
-    public CaptorArea(StringProperty name, Map<Captor, Double>  captors) {
-        super((SimpleStringProperty) name);
+    public CaptorArea(SimpleStringProperty name,Comportement comportement, Map<Captor, Double>  captors) {
+        super(name, comportement);
         this.captors=captors;
     }
 
@@ -36,4 +37,6 @@ public class CaptorArea extends Captor{
     public TreeItem<Captor> accept(TreeItemVisitor visitorCaptor){
         return visitorCaptor.visit(this);
     }
+
+
 }

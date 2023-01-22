@@ -1,5 +1,5 @@
 package model;
 
-public interface Observer<T> {
+public interface Observer{
     public void update();
 }

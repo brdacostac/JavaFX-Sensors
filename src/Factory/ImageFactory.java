@@ -10,4 +10,8 @@ public class ImageFactory {
         icon.setPreserveRatio(true);
         return icon;
     }
+    public Image imageTemperature(String path){
+        Image image = new Image(path);
+        return image;
+    }
 }

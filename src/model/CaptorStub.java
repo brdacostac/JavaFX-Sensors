@@ -17,8 +17,8 @@ public class CaptorStub {
     public CaptorStub() {
         captors = new ArrayList<>();
 
-        Captor captor1 = new CaptorArea(new SimpleStringProperty("Captor1"),new HashMap<>());
-        Captor captor2 = new CaptorBasic(new SimpleStringProperty("Captor2"));
+        Captor captor1 = new CaptorArea(new SimpleStringProperty("CaptorBornnée"),new ComportementBornee(),new HashMap<>());
+        Captor captor2 = new CaptorBasic(new SimpleStringProperty("CaptorCPU"), new ComportementCPU());
         try {
             captor1.addChild(captor2,10.0);
         } catch (Exception e) {
@@ -26,8 +26,8 @@ public class CaptorStub {
         }
 
         captors.add(captor1);
-        captors.add(new CaptorBasic(new SimpleStringProperty("Captor3")));
-        captors.add(new CaptorBasic(new SimpleStringProperty("Captor4")));
+        captors.add(new CaptorBasic(new SimpleStringProperty("CaptorFloatingBornée"), new ComportementFloatingBornee()));
+        captors.add(new CaptorBasic(new SimpleStringProperty("CaptorCPU2"), new ComportementCPU()));
 
         captorsItems = FXCollections.observableArrayList();
         for (Captor captor : captors) {
