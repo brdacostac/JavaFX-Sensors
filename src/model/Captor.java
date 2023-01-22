@@ -15,12 +15,13 @@ public abstract class Captor {
     private UUID id;
     private SimpleStringProperty name;
 
-    private DoubleProperty temperature = new SimpleDoubleProperty();
+    private SimpleDoubleProperty temperature;
 
     private Comportement comportement;
 
     public Captor(SimpleStringProperty name) {
         this.name=name;
+        temperature=new SimpleDoubleProperty(0);
     }
 
     public void setComportement(Comportement comportement) {
@@ -49,6 +50,10 @@ public abstract class Captor {
 
     public SimpleStringProperty nameProperty() {
         return name;
+    }
+
+    public DoubleProperty temperatureProperty() {
+        return temperature;
     }
 
     public void setName(String name) {

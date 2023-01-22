@@ -17,10 +17,9 @@
         <VBox>
             <TreeView fx:id="captorTreeView"/>
             <Button fx:id="addCaptorButton" text="Add Captor" onAction="#addCaptor"/>
-            <Button fx:id="afficher" text="Afficher" onAction="#afficher"/>
         </VBox>
-        <TextField fx:id="name"></TextField>
-        <Label fx:id="temperature" text="salut"/>
+        <TextField fx:id="name"/>
+        <Label fx:id="temperature" text="Temperature"/>
     </HBox>
 
 

@@ -1,12 +1,10 @@
 package view;
 
 import Factory.ImageFactory;
+import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import model.Captor;
 import model.CaptorBasic;
@@ -17,6 +15,9 @@ import model.TreeItemVisitor;
 public class FXMLWindow extends BorderPane {
     @FXML
     private TreeView<Captor> captorTreeView;
+
+    @FXML
+    private Label temperature;
 
     @FXML
     private TextField name;
@@ -36,11 +37,6 @@ public class FXMLWindow extends BorderPane {
         });
     }
 
-    @FXML
-    private void afficher() {
-        System.out.println(captorStub.getCaptorsItems());
-    }
-
 
     @FXML
     private void initialize() {
@@ -57,9 +53,11 @@ public class FXMLWindow extends BorderPane {
         captorTreeView.getSelectionModel().selectedItemProperty().addListener((observable,oldValue,newValue) -> {
             if(oldValue !=null ){
                 name.textProperty().unbindBidirectional(oldValue.getValue().nameProperty());
+                temperature.textProperty().unbindBidirectional(oldValue.getValue().temperatureProperty());
             }
             if(newValue!=null){
                 name.textProperty().bindBidirectional(newValue.getValue().nameProperty());
+                temperature.textProperty().bind(newValue.getValue().temperatureProperty().asString());
             }
         });
 
