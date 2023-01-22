@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="view.FXMLWindow"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <HBox>
+        <VBox>
+            <TreeView fx:id="captorTreeView"/>
+            <Button fx:id="addCaptorButton" text="Add Captor" onAction="#addCaptor"/>
+            <Button fx:id="afficher" text="Afficher" onAction="#afficher"/>
+        </VBox>
+        <TextField fx:id="name"></TextField>
+        <Label fx:id="temperature" text="salut"/>
+    </HBox>
+
+
+</AnchorPane>
