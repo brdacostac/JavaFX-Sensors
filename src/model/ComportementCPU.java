@@ -12,7 +12,7 @@ public class ComportementCPU implements Comportement{
         return 15.5;
     }
     @Override
-    public String getName(){
-        return "Comportement CPU";
+    public String toString(){
+        return "CPU";
     }
 }

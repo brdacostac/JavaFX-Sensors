@@ -15,7 +15,7 @@ public class ComportementBornee implements Comportement{
     }
 
     @Override
-    public String getName(){
-        return "Comportement Bornee";
+    public String toString(){
+        return "Bornee";
     }
 }

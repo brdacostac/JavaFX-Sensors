@@ -48,6 +48,6 @@ public class FXMLImage implements Observer {
         this.updateLabelValue();
 
         Map.Entry<Double, String> entry = imageMap.floorEntry(this.captor.getTemperature());
-        imageTemp.setImage(new ImageFactory().imageTemperature(entry.getValue()));
+        imageTemp.setImage(new Image(entry.getValue()));
     }
 }

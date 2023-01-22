@@ -14,7 +14,9 @@ public class ComportementFloatingBornee implements Comportement {
     }
 
     @Override
-    public String getName(){
-        return "Comportement Floating Bornee";
+    public String toString(){
+        return "Floating Bornee";
     }
+
+
 }

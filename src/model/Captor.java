@@ -17,8 +17,6 @@ public abstract class Captor extends Observable {
 
     private double temperature;
 
-
-
     protected Comportement comportement;
 
     public Captor(SimpleStringProperty name, Comportement comportement) {
@@ -31,6 +29,9 @@ public abstract class Captor extends Observable {
         }
     }
 
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
 
     public void genererTemperature() throws FileNotFoundException {
         temperature = this.comportement.genererTemperature();
@@ -42,8 +43,6 @@ public abstract class Captor extends Observable {
     public abstract List<Captor> getChildren() throws Exception;
 
     public abstract TreeItem<Captor> accept(TreeItemVisitor visitor);
-
-
 
     @Override
     public String toString() {

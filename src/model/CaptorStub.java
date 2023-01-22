@@ -17,7 +17,7 @@ public class CaptorStub {
     public CaptorStub() {
         captors = new ArrayList<>();
 
-        Captor captor1 = new CaptorArea(new SimpleStringProperty("CaptorBornnée"),new ComportementBornee(),new HashMap<>());
+        Captor captor1 = new CaptorArea(new SimpleStringProperty("CaptorBornnée"),new ComportementBornee());
         Captor captor2 = new CaptorBasic(new SimpleStringProperty("CaptorCPU"), new ComportementCPU());
         try {
             captor1.addChild(captor2,10.0);

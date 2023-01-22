@@ -14,9 +14,8 @@ public class CaptorArea extends Captor{
 
     private Map<Captor, Double> captors = new HashMap<>();
 
-    public CaptorArea(SimpleStringProperty name,Comportement comportement, Map<Captor, Double>  captors) {
+    public CaptorArea(SimpleStringProperty name,Comportement comportement) {
         super(name, comportement);
-        this.captors=captors;
     }
 
     @Override
@@ -25,10 +24,33 @@ public class CaptorArea extends Captor{
     }
 
     @Override
+    public void genererTemperature() throws FileNotFoundException {
+        try {
+            this.avarageTemperatureChildren();
+            notifyObservers();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void avarageTemperatureChildren() throws Exception {
+        List<Captor> children = this.getChildren();
+        double total=children.size();
+        double temperatureMoyenne=0;
+        for(Captor child : children){
+            System.out.println(child.getTemperature());
+            temperatureMoyenne=(temperatureMoyenne+child.getTemperature())/total;
+        }
+        this.setTemperature(temperatureMoyenne);
+    }
+
+    @Override
     public List<Captor> getChildren() throws Exception {
         List<Captor> captor = new ArrayList<>();
-        for (Map.Entry<Captor, Double> entry : captors.entrySet()) {
-            captor.add(entry.getKey());
+        if(captors != null) {
+            for (Map.Entry<Captor, Double> entry : captors.entrySet()) {
+                captor.add(entry.getKey());
+            }
         }
         return captor;
     }
